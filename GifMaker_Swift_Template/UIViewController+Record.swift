@@ -9,6 +9,11 @@
 import UIKit
 import MobileCoreServices
 
+//Regift Constants
+let frameCount = 16
+let delaytTime: Float = 0.2
+let loopCount = 0 // 0 means loop forever
+
 extension  UIViewController {
 
   @IBAction func launchVideoCamera(sender: AnyObject) {
@@ -36,9 +41,27 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
     }
     
     if let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
-      UISaveVideoAtPathToSavedPhotosAlbum(videoURL.path, nil, nil, nil)
+      //UISaveVideoAtPathToSavedPhotosAlbum(videoURL.path, nil, nil, nil)
+      convertVideoToGif(videoURL)
       dismiss(animated: true)
     }
-    
   }
+  
+  func convertVideoToGif(_ videoURL: URL) {
+    let regift = Regift(sourceFileURL: videoURL, frameCount: frameCount, delayTime: delaytTime, loopCount: loopCount)
+    if let gifURL = regift.createGif() {
+      displayGif(gifURL)
+    }
+  }
+  
+  func displayGif(_ gifURL: URL) {
+    
+    guard let gifEditorVC = storyboard?.instantiateViewController(withIdentifier: "GifEditorViewController")
+            as? GifEditorViewController else {
+        fatalError("Failed to load GifEditorViewController from storyboard.")
+    }
+    gifEditorVC.gifURL = gifURL
+    navigationController?.pushViewController(gifEditorVC, animated: true)
+  }
+
 }
