@@ -14,19 +14,6 @@ let frameCount = 16
 let delaytTime: Float = 0.2
 let loopCount = 0 // 0 means loop forever
 
-extension  UIViewController {
-
-  @IBAction func launchVideoCamera(sender: AnyObject) {
-    
-    let pickerController = UIImagePickerController()
-    pickerController.sourceType = .camera
-    pickerController.mediaTypes = [kUTTypeMovie as String]
-    pickerController.allowsEditing = false
-    pickerController.delegate = self
-    present(pickerController, animated: true)
-  }
-}
-
 extension UIViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
   public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -59,10 +46,58 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
     
     guard let gifEditorVC = storyboard?.instantiateViewController(withIdentifier: "GifEditorViewController")
             as? GifEditorViewController else {
-        fatalError("Failed to load GifEditorViewController from storyboard.")
+      fatalError("Failed to load GifEditorViewController from storyboard.")
     }
     gifEditorVC.gif = gif
     navigationController?.pushViewController(gifEditorVC, animated: true)
   }
-
+  
+  func launchPhotoLibrary() {
+    let imagePickerController = pickerControllerWithSource(.photoLibrary)
+    present(imagePickerController, animated: true)
+  }
+  
+  func launchCamera() {
+    let imagePickerController = pickerControllerWithSource(.camera)
+    present(imagePickerController, animated: true)
+  }
+  
+  func pickerControllerWithSource(_ source: UIImagePickerController.SourceType) -> UIImagePickerController {
+    let pickerController = UIImagePickerController()
+    pickerController.sourceType = source
+    pickerController.mediaTypes = [kUTTypeMovie as String]
+    pickerController.allowsEditing = true
+    pickerController.delegate = self
+    return pickerController
+  }
+  
+  @IBAction func presentVideoOptions() {
+    if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+      launchPhotoLibrary()
+    }
+    else {
+      let actionSheet = UIAlertController(title: "Create new GIF",
+                                          message: nil,
+                                          preferredStyle: .actionSheet)
+      let recordVideo = UIAlertAction(title: "Record a video",
+                                      style: .default) { [weak self] action in
+        self?.launchCamera()
+      }
+      
+      let chooseFromExisting = UIAlertAction(title: "Choose from Existing",
+                                             style: .default) { [weak self] (action) in
+        self?.launchPhotoLibrary()
+      }
+      
+      let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+      
+      actionSheet.addAction(recordVideo)
+      actionSheet.addAction(chooseFromExisting)
+      actionSheet.addAction(cancel)
+      
+      present(actionSheet, animated: true)
+      actionSheet.view.tintColor = .systemPink
+    }
+  }
+  
 }
