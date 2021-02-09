@@ -26,17 +26,43 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
           mediaType == kUTTypeMovie as String else {
       return
     }
-    
+        
     if let videoURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
-      //UISaveVideoAtPathToSavedPhotosAlbum(videoURL.path, nil, nil, nil)
-      convertVideoToGif(videoURL)
-      dismiss(animated: true)
+      let start: NSNumber? = info[UIImagePickerController.InfoKey(rawValue: "_UIImagePickerControllerVideoEditingStart")]
+        as? NSNumber
+      let end: NSNumber? = info[UIImagePickerController.InfoKey(rawValue: "_UIImagePickerControllerVideoEditingEnd")]
+        as? NSNumber
+      var duration: NSNumber?
+      if let start = start {
+        duration = NSNumber(value: end!.floatValue - start.floatValue)
+      }
+      convertVideoToGif(videoURL, startTime: start, duration: duration)
     }
   }
   
-  func convertVideoToGif(_ videoURL: URL) {
-    let regift = Regift(sourceFileURL: videoURL, frameCount: frameCount, delayTime: delaytTime, loopCount: loopCount)
-    if let gifURL = regift.createGif() {
+  func convertVideoToGif(_ videoURL: URL, startTime: NSNumber?, duration: NSNumber?) {
+    DispatchQueue.main.async {
+      self.dismiss(animated: true, completion: nil)
+    }
+    let regift: Regift?
+    if let startTime = startTime, let duration = duration {
+      //Trimmed
+      regift = Regift(sourceFileURL: videoURL,
+                      destinationFileURL: nil,
+                      startTime: startTime.floatValue,
+                      duration: duration.floatValue,
+                      frameRate: frameCount,
+                      loopCount: loopCount)
+    }
+    else {
+      //Untrimmed
+      regift = Regift(sourceFileURL: videoURL,
+                      destinationFileURL: nil,
+                      frameCount: frameCount,
+                      delayTime: delaytTime,
+                      loopCount: loopCount)
+    }
+    if let gifURL = regift?.createGif() {
       let gif = Gif(url: gifURL, videoURL: videoURL, caption: "")
       displayGif(gif)
     }
