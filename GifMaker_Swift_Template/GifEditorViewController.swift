@@ -11,11 +11,11 @@ import UIKit
 class GifEditorViewController: UIViewController {
   
   @IBOutlet private weak var gifImageView: UIImageView!
-//  @IBOutlet private weak var captionTextField: UITextField! {
-//    didSet {
-//      captionTextField.delegate = self
-//    }
-//  }
+  @IBOutlet private weak var captionTextField: UITextField! {
+    didSet {
+      captionTextField.delegate = self
+    }
+  }
   
   var gif: Gif?
   
@@ -98,15 +98,15 @@ class GifEditorViewController: UIViewController {
 
 }
 
-//// MARK: - UITextFieldDelegate
-//
-//extension GifEditorViewController: UITextFieldDelegate {
-//  func textFieldDidBeginEditing(_ textField: UITextField) {
-//    textField.placeholder = ""
-//  }
-//  
-//  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//    textField.resignFirstResponder()
-//    return true
-//  }
-//}
+// MARK: - UITextFieldDelegate
+
+extension GifEditorViewController: UITextFieldDelegate {
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    textField.placeholder = ""
+  }
+
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
+  }
+}
