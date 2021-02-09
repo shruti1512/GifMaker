@@ -34,26 +34,26 @@ class GifEditorViewController: UIViewController {
     unsubscribeFromKeyboardNotifications()
   }
   
-//  @IBAction func presentPreview(_ sender: UIButton) {
-//
-//    guard let gifPreviewVC = storyboard?.instantiateViewController(withIdentifier: "GifPreviewViewController")
-//            as? GifPreviewViewController else { return }
-//    guard let gif = gif, gif.videoURL != nil else { return }
-//    gif.caption = captionTextField.text
-//
-//    let regift = Regift(sourceFileURL: gif.videoURL!,
-//                        destinationFileURL: nil,
-//                        frameCount: frameCount,
-//                        delayTime: delaytTime,
-//                        loopCount: loopCount)
-//    let captionFont = captionTextField.font;
-//    guard let gifURL = regift.createGif(captionTextField.text, font: captionFont) else { return  }
-//
-//    let newGif = Gif(url: gifURL, videoURL: gif.videoURL!, caption: captionTextField.text!)
-//    gifPreviewVC.gif = newGif
-//    navigationController?.present(gifPreviewVC, animated: true, completion: nil)
-//
-//  }
+  @IBAction func presentPreview(_ sender: UIButton) {
+
+    guard let gifPreviewVC = storyboard?.instantiateViewController(withIdentifier: "GifPreviewViewController")
+            as? GifPreviewViewController else { return }
+    guard let gif = gif, gif.videoURL != nil else { return }
+    gif.caption = captionTextField.text
+
+    let regift = Regift(sourceFileURL: gif.videoURL!,
+                        destinationFileURL: nil,
+                        frameCount: frameCount,
+                        delayTime: delaytTime,
+                        loopCount: loopCount)
+    let captionFont = captionTextField.font;
+    guard let gifURL = regift.createGif(captionTextField.text, font: captionFont) else { return  }
+
+    let newGif = Gif(url: gifURL, videoURL: gif.videoURL!, caption: captionTextField.text!)
+    gifPreviewVC.gif = newGif
+    navigationController?.present(gifPreviewVC, animated: true, completion: nil)
+
+  }
   
   // MARK: - Observe and respond to keyboard notifications
   
