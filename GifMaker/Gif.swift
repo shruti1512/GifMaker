@@ -9,11 +9,11 @@
 import UIKit
 
 struct Gif: Hashable {
-  let url: URL?
+  let gifURL: URL?
   let videoURL: URL?
   var caption: String?
   var gifImage: UIImage? {
-    guard let url = url else { return nil }
+    guard let url = gifURL else { return nil }
     return UIImage.gif(url: url.absoluteString)
   }
   var gifData: Data?
