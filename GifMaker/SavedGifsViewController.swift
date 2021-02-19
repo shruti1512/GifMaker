@@ -20,13 +20,13 @@ class SavedGifsViewController: UIViewController {
   
   @IBOutlet private weak var emptyView: UIStackView!
 
-  enum Section {
+  private enum Section {
     case main
   }
   
-  typealias CollectionViewDataSource = UICollectionViewDiffableDataSource<Section, Gif>
-  var dataSource: CollectionViewDataSource!
-  var savedGifs: [Gif] = [] {
+  private typealias CollectionViewDataSource = UICollectionViewDiffableDataSource<Section, Gif>
+  private var dataSource: CollectionViewDataSource!
+  private var savedGifs: [Gif] = [] {
     didSet {
       emptyView.isHidden = (savedGifs.count != 0)
     }
@@ -73,7 +73,8 @@ class SavedGifsViewController: UIViewController {
 }
 
 extension SavedGifsViewController: PreviewViewControllerDelegate {
-  func previewViewController(_ previewVC: GifPreviewViewController, didSaveGif gif: Gif) {
+  
+  public func previewViewController(_ previewVC: GifPreviewViewController, didSaveGif gif: Gif) {
     guard let url = gif.gifURL else { return }
     var newGif = gif
     newGif.gifData = try? Data(contentsOf: url)

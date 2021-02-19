@@ -73,7 +73,7 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		33728E0125D1A9C90056D543 /* Extensions */ = {
+		337EB49D25E008A000235895 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				330A11A925DF81E600CD56DB /* Constants.swift */,
@@ -82,16 +82,16 @@
 				33728E0225D1A9E50056D543 /* UIViewController+Record.swift */,
 				339F889625D1D15400599E45 /* UIImage+Gif.swift */,
 			);
-			name = Extensions;
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		339F889025D1CD9600599E45 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				339F889125D1CDC200599E45 /* WelcomeViewController.swift */,
+				33D2E6A825DF7F8000779560 /* SavedGifsViewController.swift */,
 				339F889925D1D77900599E45 /* GifEditorViewController.swift */,
 				339F88A325D21C7100599E45 /* GifPreviewViewController.swift */,
-				33D2E6A825DF7F8000779560 /* SavedGifsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -159,7 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				339F889D25D1DBFF00599E45 /* AppDelegate */,
-				33728E0125D1A9C90056D543 /* Extensions */,
+				337EB49D25E008A000235895 /* Utilities */,
 				339F889E25D1DC0A00599E45 /* Models */,
 				330A11A525DF80BF00CD56DB /* Views */,
 				339F889025D1CD9600599E45 /* ViewControllers */,
