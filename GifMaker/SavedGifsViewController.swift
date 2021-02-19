@@ -9,22 +9,39 @@
 import UIKit
 
 class SavedGifsViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+  
+  enum Section {
+    case main
+  }
+  
+  typealias CollectionViewDataSource = UICollectionViewDiffableDataSource<Section, Gif>
+  
+  private lazy var collectionView: UICollectionView = {
+    let collectionView = UICollectionView(frame: .zero,
+                                          collectionViewLayout: configureCollectionViewLayout())
+    collectionView.backgroundColor = .systemBackground
+    //    collectionView.dataSource = configureDataSource()
+    return collectionView
+  }()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
+  
+  private func configureCollectionViewLayout() -> UICollectionViewCompositionalLayout {
+    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
+                                          heightDimension: .fractionalHeight(1.0))
+    let item = NSCollectionLayoutItem(layoutSize: itemSize)
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                           heightDimension: .fractionalWidth(0.5))
+    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+    
+    let section = NSCollectionLayoutSection(group: group)
+    return UICollectionViewCompositionalLayout(section: section)
+  }
+  
+  private func configureDataSource()  {
+    
+  }
 }
