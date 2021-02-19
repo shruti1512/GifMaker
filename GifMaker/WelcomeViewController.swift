@@ -14,8 +14,6 @@ class WelcomeViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // Do any additional setup after loading the view.
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -23,7 +21,8 @@ class WelcomeViewController: UIViewController {
     // An animated UIImage
     let jeremyGif = UIImage.gif(name: "hotlineBling")
     gifImageView.image = jeremyGif
-    
+    var test: String? = nil
+    test!.append("H")
   }
   
   /*

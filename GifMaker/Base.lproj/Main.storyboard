@@ -180,7 +180,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Caption" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hx5-Iw-gBr">
-                                <rect key="frame" x="20" y="573" width="374" height="50"/>
+                                <rect key="frame" x="30" y="573" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ZG3-3H-HnY"/>
                                 </constraints>
@@ -192,9 +192,9 @@
                         <color key="backgroundColor" red="0.1803921568627451" green="0.23921568627450979" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Idg-S9-dYE" firstAttribute="centerX" secondItem="pNa-Y5-au7" secondAttribute="centerX" id="AIg-Cn-AfA"/>
-                            <constraint firstItem="Hx5-Iw-gBr" firstAttribute="leading" secondItem="pNa-Y5-au7" secondAttribute="leadingMargin" id="E5H-Ol-G63"/>
+                            <constraint firstItem="Hx5-Iw-gBr" firstAttribute="leading" secondItem="pNa-Y5-au7" secondAttribute="leadingMargin" constant="10" id="E5H-Ol-G63"/>
                             <constraint firstItem="Idg-S9-dYE" firstAttribute="centerY" secondItem="pNa-Y5-au7" secondAttribute="centerY" id="FUy-o0-qfE"/>
-                            <constraint firstItem="Hx5-Iw-gBr" firstAttribute="trailing" secondItem="pNa-Y5-au7" secondAttribute="trailingMargin" id="R7v-np-3az"/>
+                            <constraint firstItem="Hx5-Iw-gBr" firstAttribute="trailing" secondItem="pNa-Y5-au7" secondAttribute="trailingMargin" constant="10" id="R7v-np-3az"/>
                             <constraint firstItem="Hx5-Iw-gBr" firstAttribute="bottom" secondItem="Idg-S9-dYE" secondAttribute="bottom" constant="-12" id="jJN-cY-b9h"/>
                             <constraint firstItem="Idg-S9-dYE" firstAttribute="trailing" secondItem="pNa-Y5-au7" secondAttribute="trailingMargin" id="n2q-Vp-Imz"/>
                             <constraint firstItem="Idg-S9-dYE" firstAttribute="leading" secondItem="pNa-Y5-au7" secondAttribute="leadingMargin" id="nwW-nq-7aP"/>
@@ -246,6 +246,9 @@
                                         <state key="normal" title="SHARE">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="shareGif:" destination="cB7-Y1-ZFX" eventType="touchUpInside" id="Vzs-v1-zHr"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoi-MZ-GNH">
                                         <rect key="frame" x="0.0" y="66" width="374" height="50"/>
@@ -373,7 +376,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="createButton"/>
                                 <connections>
-                                    <action selector="launchVideoCameraWithSender:" destination="aXC-Xw-CZL" eventType="touchUpInside" id="vLT-j5-vAf"/>
+                                    <action selector="presentVideoOptions" destination="aXC-Xw-CZL" eventType="touchUpInside" id="38A-d8-pFM"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mvh-6r-tbq">

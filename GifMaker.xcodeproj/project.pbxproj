@@ -35,7 +35,7 @@
 		A93B3B071D2D3F7900BE1662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDDFC4DB1CE261A600A586CA /* tinaFeyHiFive.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tinaFeyHiFive.gif; sourceTree = "<group>"; };
 		EDDFC4DD1CE261C400A586CA /* hotlineBling.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hotlineBling.gif; sourceTree = "<group>"; };
-		EDFAA8E91CDA99A500D2CB08 /* GifMaker_Swift_Template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifMaker_Swift_Template.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDFAA8E91CDA99A500D2CB08 /* GifMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDFAA8EC1CDA99A500D2CB08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDFAA8F31CDA99A500D2CB08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDFAA8F81CDA99A500D2CB08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 		EDFAA8E01CDA99A500D2CB08 = {
 			isa = PBXGroup;
 			children = (
-				EDFAA8EB1CDA99A500D2CB08 /* GifMaker_Swift_Template */,
+				EDFAA8EB1CDA99A500D2CB08 /* GifMaker */,
 				EDFAA8EA1CDA99A500D2CB08 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -128,12 +128,12 @@
 		EDFAA8EA1CDA99A500D2CB08 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EDFAA8E91CDA99A500D2CB08 /* GifMaker_Swift_Template.app */,
+				EDFAA8E91CDA99A500D2CB08 /* GifMaker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EDFAA8EB1CDA99A500D2CB08 /* GifMaker_Swift_Template */ = {
+		EDFAA8EB1CDA99A500D2CB08 /* GifMaker */ = {
 			isa = PBXGroup;
 			children = (
 				339F889D25D1DBFF00599E45 /* AppDelegate */,
@@ -145,7 +145,7 @@
 				A94CC3D61D21C84C00DC758E /* Supporting Files */,
 				EDFAA9221CDA9C4700D2CB08 /* Regift Files */,
 			);
-			path = GifMaker_Swift_Template;
+			path = GifMaker;
 			sourceTree = "<group>";
 		};
 		EDFAA9221CDA9C4700D2CB08 /* Regift Files */ = {
@@ -161,9 +161,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EDFAA8E81CDA99A500D2CB08 /* GifMaker_Swift_Template */ = {
+		EDFAA8E81CDA99A500D2CB08 /* GifMaker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EDFAA9111CDA99A500D2CB08 /* Build configuration list for PBXNativeTarget "GifMaker_Swift_Template" */;
+			buildConfigurationList = EDFAA9111CDA99A500D2CB08 /* Build configuration list for PBXNativeTarget "GifMaker" */;
 			buildPhases = (
 				EDFAA8E51CDA99A500D2CB08 /* Sources */,
 				EDFAA8E61CDA99A500D2CB08 /* Frameworks */,
@@ -173,9 +173,9 @@
 			);
 			dependencies = (
 			);
-			name = GifMaker_Swift_Template;
+			name = GifMaker;
 			productName = GifMaker_Swift_Template;
-			productReference = EDFAA8E91CDA99A500D2CB08 /* GifMaker_Swift_Template.app */;
+			productReference = EDFAA8E91CDA99A500D2CB08 /* GifMaker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -195,7 +195,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EDFAA8E41CDA99A500D2CB08 /* Build configuration list for PBXProject "GifMaker_Swift_Template" */;
+			buildConfigurationList = EDFAA8E41CDA99A500D2CB08 /* Build configuration list for PBXProject "GifMaker" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -208,7 +208,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EDFAA8E81CDA99A500D2CB08 /* GifMaker_Swift_Template */,
+				EDFAA8E81CDA99A500D2CB08 /* GifMaker */,
 			);
 		};
 /* End PBXProject section */
@@ -382,7 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PSFNNZ46DN;
-				INFOPLIST_FILE = GifMaker_Swift_Template/Info.plist;
+				INFOPLIST_FILE = GifMaker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shrutiapps.taskList;
@@ -395,7 +395,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = GifMaker_Swift_Template/Info.plist;
+				INFOPLIST_FILE = GifMaker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Udacity.GifMaker-Swift-Template";
@@ -408,7 +408,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EDFAA8E41CDA99A500D2CB08 /* Build configuration list for PBXProject "GifMaker_Swift_Template" */ = {
+		EDFAA8E41CDA99A500D2CB08 /* Build configuration list for PBXProject "GifMaker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EDFAA90F1CDA99A500D2CB08 /* Debug */,
@@ -417,7 +417,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EDFAA9111CDA99A500D2CB08 /* Build configuration list for PBXNativeTarget "GifMaker_Swift_Template" */ = {
+		EDFAA9111CDA99A500D2CB08 /* Build configuration list for PBXNativeTarget "GifMaker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EDFAA9121CDA99A500D2CB08 /* Debug */,
