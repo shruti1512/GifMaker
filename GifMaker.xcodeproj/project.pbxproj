@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		330A11A725DF80F000CD56DB /* SavedGifCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330A11A625DF80F000CD56DB /* SavedGifCollectionViewCell.swift */; };
+		330A11A725DF80F000CD56DB /* GifCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330A11A625DF80F000CD56DB /* GifCell.swift */; };
 		330A11AC25DF81E600CD56DB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330A11A925DF81E600CD56DB /* Constants.swift */; };
 		330A11AD25DF81E600CD56DB /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330A11AA25DF81E600CD56DB /* UIView+Layout.swift */; };
 		330A11AE25DF81E600CD56DB /* SelfConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330A11AB25DF81E600CD56DB /* SelfConfigurable.swift */; };
@@ -30,7 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		330A11A625DF80F000CD56DB /* SavedGifCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedGifCollectionViewCell.swift; sourceTree = "<group>"; };
+		330A11A625DF80F000CD56DB /* GifCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifCell.swift; sourceTree = "<group>"; };
 		330A11A925DF81E600CD56DB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		330A11AA25DF81E600CD56DB /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		330A11AB25DF81E600CD56DB /* SelfConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfConfigurable.swift; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 		330A11A525DF80BF00CD56DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				330A11A625DF80F000CD56DB /* SavedGifCollectionViewCell.swift */,
+				330A11A625DF80F000CD56DB /* GifCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -262,7 +262,7 @@
 				33728E0325D1A9E50056D543 /* UIViewController+Record.swift in Sources */,
 				339F889725D1D15400599E45 /* UIImage+Gif.swift in Sources */,
 				EDFAA9211CDA9C3100D2CB08 /* RegiftCaption.swift in Sources */,
-				330A11A725DF80F000CD56DB /* SavedGifCollectionViewCell.swift in Sources */,
+				330A11A725DF80F000CD56DB /* GifCell.swift in Sources */,
 				330A11AC25DF81E600CD56DB /* Constants.swift in Sources */,
 				330A11AE25DF81E600CD56DB /* SelfConfigurable.swift in Sources */,
 				339F889A25D1D77900599E45 /* GifEditorViewController.swift in Sources */,
