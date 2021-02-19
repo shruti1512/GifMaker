@@ -10,42 +10,44 @@ import UIKit
 
 class SavedGifsViewController: UIViewController {
   
+  @IBOutlet private weak var collectionView: UICollectionView! {
+    didSet {
+      collectionView.collectionViewLayout = configureCollectionViewLayout()
+      collectionView.backgroundColor = .systemBackground
+      collectionView.register(GifCell.self, forCellWithReuseIdentifier: GifCell.reuseIdentifier)
+    }
+  }
+  
+  @IBOutlet private weak var emptyView: UIStackView!
+
   enum Section {
     case main
   }
   
   typealias CollectionViewDataSource = UICollectionViewDiffableDataSource<Section, Gif>
   var dataSource: CollectionViewDataSource!
-  
-  private lazy var collectionView: UICollectionView = {
-    let collectionView = UICollectionView(frame: .zero,
-                                          collectionViewLayout: configureCollectionViewLayout())
-    collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    collectionView.backgroundColor = .systemBackground
-    collectionView.register(GifCell.self, forCellWithReuseIdentifier: GifCell.reuseIdentifier)
-    return collectionView
-  }()
+  var savedGifs: [Gif] = [] {
+    didSet {
+      emptyView.isHidden = (savedGifs.count != 0)
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    addCollectionView()
     configureDataSource()
     reloadData()
-  }
-  
-  private func addCollectionView() {
-    view.addSubview(collectionView)
   }
   
   private func configureCollectionViewLayout() -> UICollectionViewCompositionalLayout {
     let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
                                           heightDimension: .fractionalHeight(1.0))
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
+    item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
     
     let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                            heightDimension: .fractionalWidth(0.5))
     let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-    
+
     let section = NSCollectionLayoutSection(group: group)
     return UICollectionViewCompositionalLayout(section: section)
   }
@@ -65,7 +67,7 @@ class SavedGifsViewController: UIViewController {
   private func reloadData() {
     var snapshot = NSDiffableDataSourceSnapshot<Section, Gif>()
     snapshot.appendSections([.main])
-    snapshot.appendItems([])
+    snapshot.appendItems(savedGifs)
     dataSource.apply(snapshot)
   }
   
