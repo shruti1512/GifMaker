@@ -12,6 +12,9 @@
 		330A11AD25DF81E600CD56DB /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330A11AA25DF81E600CD56DB /* UIView+Layout.swift */; };
 		330A11AE25DF81E600CD56DB /* SelfConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330A11AB25DF81E600CD56DB /* SelfConfigurable.swift */; };
 		33728E0325D1A9E50056D543 /* UIViewController+Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33728E0225D1A9E50056D543 /* UIViewController+Record.swift */; };
+		337EB4A025E055F800235895 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337EB49F25E055F800235895 /* Extensions.swift */; };
+		337EB4A325E073A800235895 /* GifDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337EB4A225E073A800235895 /* GifDetailViewController.swift */; };
+		337EB4A625E0768700235895 /* ShareGifProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337EB4A525E0768700235895 /* ShareGifProtocol.swift */; };
 		339F889225D1CDC200599E45 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F889125D1CDC200599E45 /* WelcomeViewController.swift */; };
 		339F889725D1D15400599E45 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F889625D1D15400599E45 /* UIImage+Gif.swift */; };
 		339F889A25D1D77900599E45 /* GifEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F889925D1D77900599E45 /* GifEditorViewController.swift */; };
@@ -35,6 +38,9 @@
 		330A11AA25DF81E600CD56DB /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		330A11AB25DF81E600CD56DB /* SelfConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfConfigurable.swift; sourceTree = "<group>"; };
 		33728E0225D1A9E50056D543 /* UIViewController+Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Record.swift"; sourceTree = "<group>"; };
+		337EB49F25E055F800235895 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		337EB4A225E073A800235895 /* GifDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailViewController.swift; sourceTree = "<group>"; };
+		337EB4A525E0768700235895 /* ShareGifProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareGifProtocol.swift; sourceTree = "<group>"; };
 		339F889125D1CDC200599E45 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		339F889625D1D15400599E45 /* UIImage+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		339F889925D1D77900599E45 /* GifEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifEditorViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +87,8 @@
 				330A11AA25DF81E600CD56DB /* UIView+Layout.swift */,
 				33728E0225D1A9E50056D543 /* UIViewController+Record.swift */,
 				339F889625D1D15400599E45 /* UIImage+Gif.swift */,
+				337EB49F25E055F800235895 /* Extensions.swift */,
+				337EB4A525E0768700235895 /* ShareGifProtocol.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -92,6 +100,7 @@
 				33D2E6A825DF7F8000779560 /* SavedGifsViewController.swift */,
 				339F889925D1D77900599E45 /* GifEditorViewController.swift */,
 				339F88A325D21C7100599E45 /* GifPreviewViewController.swift */,
+				337EB4A225E073A800235895 /* GifDetailViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -266,7 +275,10 @@
 				330A11AC25DF81E600CD56DB /* Constants.swift in Sources */,
 				330A11AE25DF81E600CD56DB /* SelfConfigurable.swift in Sources */,
 				339F889A25D1D77900599E45 /* GifEditorViewController.swift in Sources */,
+				337EB4A625E0768700235895 /* ShareGifProtocol.swift in Sources */,
 				339F889225D1CDC200599E45 /* WelcomeViewController.swift in Sources */,
+				337EB4A025E055F800235895 /* Extensions.swift in Sources */,
+				337EB4A325E073A800235895 /* GifDetailViewController.swift in Sources */,
 				EDFAA8ED1CDA99A500D2CB08 /* AppDelegate.swift in Sources */,
 				EDFAA91F1CDA9C3100D2CB08 /* AVAssetImageGeneratorTimePoints.swift in Sources */,
 				330A11AD25DF81E600CD56DB /* UIView+Layout.swift in Sources */,
