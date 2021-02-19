@@ -21,8 +21,6 @@ class WelcomeViewController: UIViewController {
     // An animated UIImage
     let jeremyGif = UIImage.gif(name: "hotlineBling")
     gifImageView.image = jeremyGif
-    var test: String? = nil
-    test!.append("H")
   }
   
   /*
