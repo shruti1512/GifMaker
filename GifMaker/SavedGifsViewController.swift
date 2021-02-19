@@ -15,11 +15,13 @@ class SavedGifsViewController: UIViewController {
   }
   
   typealias CollectionViewDataSource = UICollectionViewDiffableDataSource<Section, Gif>
+  var dataSource: CollectionViewDataSource!
   
   private lazy var collectionView: UICollectionView = {
     let collectionView = UICollectionView(frame: .zero,
                                           collectionViewLayout: configureCollectionViewLayout())
     collectionView.backgroundColor = .systemBackground
+    collectionView.register(GifCell.self, forCellWithReuseIdentifier: GifCell.reuseIdentifier)
     //    collectionView.dataSource = configureDataSource()
     return collectionView
   }()
@@ -42,6 +44,15 @@ class SavedGifsViewController: UIViewController {
   }
   
   private func configureDataSource()  {
-    
+    dataSource = CollectionViewDataSource(collectionView: collectionView) {
+      (collectionView, indexPath, gif) -> UICollectionViewCell? in
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GifCell.reuseIdentifier,
+                                                          for: indexPath) as? GifCell else {
+        fatalError("Unable to deque cell with reuseIdentifier: \(GifCell.reuseIdentifier)")
+      }
+      cell.configure(with: gif)
+      return cell
+    }
   }
+  
 }
