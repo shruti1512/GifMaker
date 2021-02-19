@@ -38,7 +38,7 @@ class GifEditorViewController: UIViewController {
 
     guard let gifPreviewVC = storyboard?.instantiateViewController(withIdentifier: "GifPreviewViewController")
             as? GifPreviewViewController else { return }
-    guard let gif = gif, gif.videoURL != nil else { return }
+    guard var gif = gif, gif.videoURL != nil else { return }
     gif.caption = captionTextField.text
 
     let regift = Regift(sourceFileURL: gif.videoURL!,

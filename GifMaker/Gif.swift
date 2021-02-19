@@ -8,23 +8,22 @@
 
 import UIKit
 
-class Gif {
+struct Gif: Hashable {
   let url: URL?
   let videoURL: URL?
   var caption: String?
-  let gifImage: UIImage?
-  var gifData: Data?
-
-  init(url: URL, videoURL: URL, caption: String) {
-    self.url = url
-    self.videoURL = videoURL
-    self.caption = caption
-    self.gifImage = UIImage.gif(url: url.absoluteString)
-    self.gifData = nil
+  var gifImage: UIImage? {
+    guard let url = url else { return nil }
+    return UIImage.gif(url: url.absoluteString)
   }
+  var gifData: Data?
+  let identifier = UUID().uuidString
 
-//  init(name: String) {
-//    self.gifImage = UIImage.gif(name: name)!
-//  }
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(identifier)
+  }
+  
+  static func ==(lhs: Gif, rhs: Gif) -> Bool {
+    return lhs.identifier == rhs.identifier
+  }
 }
-
