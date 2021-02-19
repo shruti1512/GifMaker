@@ -213,7 +213,7 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
                       loopCount: loopCount)
     }
     if let gifURL = regift?.createGif() {
-      let gif = Gif(url: gifURL, videoURL: videoURL, caption: "")
+      let gif = Gif(gifURL: gifURL, videoURL: videoURL, caption: "")
       displayGif(gif)
     }
   }

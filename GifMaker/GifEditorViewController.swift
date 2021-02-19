@@ -38,6 +38,7 @@ class GifEditorViewController: UIViewController {
 
     guard let gifPreviewVC = storyboard?.instantiateViewController(withIdentifier: "GifPreviewViewController")
             as? GifPreviewViewController else { return }
+    gifPreviewVC.delegate = navigationController?.viewControllers.first as? SavedGifsViewController
     guard var gif = gif, gif.videoURL != nil else { return }
     gif.caption = captionTextField.text
 
@@ -49,9 +50,9 @@ class GifEditorViewController: UIViewController {
     let captionFont = captionTextField.font;
     guard let gifURL = regift.createGif(captionTextField.text, font: captionFont) else { return  }
 
-    let newGif = Gif(url: gifURL, videoURL: gif.videoURL!, caption: captionTextField.text!)
+    let newGif = Gif(gifURL: gifURL, videoURL: gif.videoURL!, caption: captionTextField.text!)
     gifPreviewVC.gif = newGif
-    navigationController?.present(gifPreviewVC, animated: true, completion: nil)
+    navigationController?.pushViewController(gifPreviewVC, animated: true)
 
   }
   

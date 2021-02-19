@@ -24,7 +24,7 @@ class GifPreviewViewController: UIViewController {
   }
   
   @IBAction func shareGif(_ sender: UIButton) {
-    guard let gif = gif, let gifURL = gif.url else { return }
+    guard let gif = gif, let gifURL = gif.gifURL else { return }
     guard let animatedGif = try? Data(contentsOf: gifURL) else { return }
     
     let shareController = UIActivityViewController(activityItems: [animatedGif],
@@ -40,9 +40,10 @@ class GifPreviewViewController: UIViewController {
   }
   
   @IBAction private func createAndSave(_ sender: UIButton) {
+    if let gif = gif {
+      delegate?.previewViewController(self, didSaveGif: gif)
+    }
     navigationController?.popToRootViewController(animated: true)
-    guard let gif = gif else { return }
-    delegate?.previewViewController(self, didSaveGif: gif)
   }
   
 }

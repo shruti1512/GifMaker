@@ -70,5 +70,14 @@ class SavedGifsViewController: UIViewController {
     snapshot.appendItems(savedGifs)
     dataSource.apply(snapshot)
   }
-  
+}
+
+extension SavedGifsViewController: PreviewViewControllerDelegate {
+  func previewViewController(_ previewVC: GifPreviewViewController, didSaveGif gif: Gif) {
+    guard let url = gif.gifURL else { return }
+    var newGif = gif
+    newGif.gifData = try? Data(contentsOf: url)
+    savedGifs.append(gif)
+    reloadData()
+  }
 }
