@@ -17,7 +17,7 @@
                         <color key="tintColor" red="1" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="aXC-Xw-CZL" kind="relationship" relationship="rootViewController" id="O6U-Pr-xGP"/>
+                        <segue destination="upq-jB-3dI" kind="relationship" relationship="rootViewController" id="6St-EW-vhy"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DM2-vZ-vXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -27,7 +27,7 @@
         <!--My Collection-->
         <scene sceneID="ALv-Et-lNO">
             <objects>
-                <viewController storyboardIdentifier="SavedGifsViewController" title="My Collection" useStoryboardIdentifierAsRestorationIdentifier="YES" id="upq-jB-3dI" customClass="SavedGifsViewController" customModule="GifMaker_Swift_Template" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SavedGifsViewController" title="My Collection" useStoryboardIdentifierAsRestorationIdentifier="YES" id="upq-jB-3dI" customClass="SavedGifsViewController" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E4A-ch-Oxv"/>
                         <viewControllerLayoutGuide type="bottom" id="zVw-uv-suS"/>
@@ -45,45 +45,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="8"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GifCell" id="2ru-Ed-G6h" customClass="GifCell">
-                                        <rect key="frame" x="8" y="8" width="177" height="177"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="177" height="177"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sHD-OW-keS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="177"/>
-                                                </imageView>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="sHD-OW-keS" firstAttribute="centerY" secondItem="2ru-Ed-G6h" secondAttribute="centerY" id="3tT-Xx-fXS"/>
-                                            <constraint firstItem="sHD-OW-keS" firstAttribute="top" secondItem="2ru-Ed-G6h" secondAttribute="topMargin" constant="-8" id="Vlj-Xn-EIa"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="sHD-OW-keS" secondAttribute="bottom" constant="-8" id="WA5-Rm-Yju"/>
-                                            <constraint firstItem="sHD-OW-keS" firstAttribute="top" secondItem="2ru-Ed-G6h" secondAttribute="top" id="fc9-Es-iu1"/>
-                                            <constraint firstItem="sHD-OW-keS" firstAttribute="leading" secondItem="2ru-Ed-G6h" secondAttribute="leading" id="h9g-jN-Pt6"/>
-                                            <constraint firstAttribute="bottom" secondItem="sHD-OW-keS" secondAttribute="bottom" id="kXa-5t-iuW"/>
-                                            <constraint firstItem="sHD-OW-keS" firstAttribute="leading" secondItem="2ru-Ed-G6h" secondAttribute="leadingMargin" constant="-8" id="nZt-v0-YcO"/>
-                                            <constraint firstItem="sHD-OW-keS" firstAttribute="centerX" secondItem="2ru-Ed-G6h" secondAttribute="centerX" id="qyJ-Sj-rVA"/>
-                                            <constraint firstAttribute="trailing" secondItem="sHD-OW-keS" secondAttribute="trailing" id="zEI-oR-GuC"/>
-                                        </constraints>
-                                        <size key="customSize" width="177" height="177"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="3tT-Xx-fXS"/>
-                                                <exclude reference="Vlj-Xn-EIa"/>
-                                                <exclude reference="WA5-Rm-Yju"/>
-                                                <exclude reference="nZt-v0-YcO"/>
-                                                <exclude reference="qyJ-Sj-rVA"/>
-                                            </mask>
-                                        </variation>
-                                        <connections>
-                                            <outlet property="gifImageView" destination="sHD-OW-keS" id="VAe-LJ-h3J"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                                 <connections>
                                     <outlet property="dataSource" destination="upq-jB-3dI" id="Dq5-qq-gcM"/>
                                     <outlet property="delegate" destination="upq-jB-3dI" id="7YP-ZL-2L5"/>
@@ -96,6 +58,9 @@
                                     <constraint firstAttribute="height" constant="60" id="nD5-xT-Xdf"/>
                                 </constraints>
                                 <state key="normal" image="createButton"/>
+                                <connections>
+                                    <action selector="presentVideoOptions" destination="upq-jB-3dI" eventType="touchUpInside" id="NaB-hg-Bju"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rBY-mr-O59">
                                 <rect key="frame" x="20" y="376" width="374" height="144"/>
@@ -159,28 +124,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1mO-R1-5Re" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="81" y="66"/>
+            <point key="canvasLocation" x="-1123" y="-378"/>
         </scene>
         <!--Add a Caption-->
         <scene sceneID="7IM-YL-IPR">
             <objects>
-                <viewController storyboardIdentifier="GifEditorViewController" title="Add a Caption" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gN0-HT-VRx" customClass="GifEditorViewController" customModule="GifMaker_Swift_Template" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GifEditorViewController" title="Add a Caption" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gN0-HT-VRx" customClass="GifEditorViewController" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SRd-cZ-f0f"/>
                         <viewControllerLayoutGuide type="bottom" id="8Ay-xf-bgi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pNa-Y5-au7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Idg-S9-dYE">
-                                <rect key="frame" x="20" y="261" width="374" height="374"/>
+                                <rect key="frame" x="20" y="234" width="374" height="374"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Idg-S9-dYE" secondAttribute="height" multiplier="1:1" id="VYW-pa-uQv"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Caption" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hx5-Iw-gBr">
-                                <rect key="frame" x="30" y="573" width="374" height="50"/>
+                                <rect key="frame" x="30" y="546" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ZG3-3H-HnY"/>
                                 </constraints>
@@ -220,7 +185,7 @@
         <!--Gif Preview View Controller-->
         <scene sceneID="6jO-Zd-0F6">
             <objects>
-                <viewController storyboardIdentifier="GifPreviewViewController" title="Preview" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cB7-Y1-ZFX" userLabel="Gif Preview View Controller" customClass="GifPreviewViewController" customModule="GifMaker_Swift_Template" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GifPreviewViewController" title="Preview" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cB7-Y1-ZFX" userLabel="Gif Preview View Controller" customClass="GifPreviewViewController" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rxa-Xz-1J1"/>
                         <viewControllerLayoutGuide type="bottom" id="zEa-bK-uMp"/>
@@ -342,7 +307,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="MO7-ys-2QJ">
             <objects>
-                <viewController storyboardIdentifier="WelcomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aXC-Xw-CZL" customClass="WelcomeViewController" customModule="GifMaker_Swift_Template" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aXC-Xw-CZL" customClass="WelcomeViewController" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FzV-E8-2I8"/>
                         <viewControllerLayoutGuide type="bottom" id="IJD-un-28D"/>
@@ -352,13 +317,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wun-5B-Ruk">
-                                <rect key="frame" x="20" y="88" width="374" height="374"/>
+                                <rect key="frame" x="20" y="44" width="374" height="374"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Wun-5B-Ruk" secondAttribute="height" multiplier="1:1" id="Tia-mF-cfY"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxW-AR-iPS">
-                                <rect key="frame" x="20" y="406" width="374" height="44"/>
+                                <rect key="frame" x="20" y="362" width="374" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ydg-GB-ycP"/>
                                 </constraints>
@@ -380,7 +345,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mvh-6r-tbq">
-                                <rect key="frame" x="20" y="462" width="374" height="320"/>
+                                <rect key="frame" x="20" y="418" width="374" height="364"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="UIK-Hq-gR7">
                                         <rect key="frame" x="12" y="21" width="350" height="75"/>
@@ -488,7 +453,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IJp-h7-HxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1026" y="-783.75"/>
+            <point key="canvasLocation" x="-1123" y="-1235"/>
         </scene>
     </scenes>
     <resources>

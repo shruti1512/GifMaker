@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		330A11A725DF80F000CD56DB /* SavedGifCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330A11A625DF80F000CD56DB /* SavedGifCollectionViewCell.swift */; };
 		33728E0325D1A9E50056D543 /* UIViewController+Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33728E0225D1A9E50056D543 /* UIViewController+Record.swift */; };
 		339F889225D1CDC200599E45 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F889125D1CDC200599E45 /* WelcomeViewController.swift */; };
 		339F889725D1D15400599E45 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F889625D1D15400599E45 /* UIImage+Gif.swift */; };
 		339F889A25D1D77900599E45 /* GifEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F889925D1D77900599E45 /* GifEditorViewController.swift */; };
 		339F88A125D1DC4400599E45 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F88A025D1DC4400599E45 /* Gif.swift */; };
 		339F88A425D21C7100599E45 /* GifPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339F88A325D21C7100599E45 /* GifPreviewViewController.swift */; };
+		33D2E6A925DF7F8000779560 /* SavedGifsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2E6A825DF7F8000779560 /* SavedGifsViewController.swift */; };
 		A93B3B081D2D3F7900BE1662 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A93B3B041D2D3F7900BE1662 /* LaunchScreen.xib */; };
 		A93B3B091D2D3F7900BE1662 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93B3B061D2D3F7900BE1662 /* Main.storyboard */; };
 		EDDFC4DC1CE261A600A586CA /* tinaFeyHiFive.gif in Resources */ = {isa = PBXBuildFile; fileRef = EDDFC4DB1CE261A600A586CA /* tinaFeyHiFive.gif */; };
@@ -25,12 +27,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		330A11A625DF80F000CD56DB /* SavedGifCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedGifCollectionViewCell.swift; sourceTree = "<group>"; };
 		33728E0225D1A9E50056D543 /* UIViewController+Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Record.swift"; sourceTree = "<group>"; };
 		339F889125D1CDC200599E45 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		339F889625D1D15400599E45 /* UIImage+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		339F889925D1D77900599E45 /* GifEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifEditorViewController.swift; sourceTree = "<group>"; };
 		339F88A025D1DC4400599E45 /* Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
 		339F88A325D21C7100599E45 /* GifPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifPreviewViewController.swift; sourceTree = "<group>"; };
+		33D2E6A825DF7F8000779560 /* SavedGifsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedGifsViewController.swift; sourceTree = "<group>"; };
 		A93B3B051D2D3F7900BE1662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A93B3B071D2D3F7900BE1662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDDFC4DB1CE261A600A586CA /* tinaFeyHiFive.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tinaFeyHiFive.gif; sourceTree = "<group>"; };
@@ -55,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		330A11A525DF80BF00CD56DB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				330A11A625DF80F000CD56DB /* SavedGifCollectionViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		33728E0125D1A9C90056D543 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +82,7 @@
 				339F889125D1CDC200599E45 /* WelcomeViewController.swift */,
 				339F889925D1D77900599E45 /* GifEditorViewController.swift */,
 				339F88A325D21C7100599E45 /* GifPreviewViewController.swift */,
+				33D2E6A825DF7F8000779560 /* SavedGifsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -139,6 +152,7 @@
 				339F889D25D1DBFF00599E45 /* AppDelegate */,
 				33728E0125D1A9C90056D543 /* Extensions */,
 				339F889E25D1DC0A00599E45 /* Models */,
+				330A11A525DF80BF00CD56DB /* Views */,
 				339F889025D1CD9600599E45 /* ViewControllers */,
 				339F889F25D1DC1900599E45 /* StoryBoards */,
 				A94CC3D71D21C85A00DC758E /* Assets */,
@@ -234,10 +248,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				339F88A425D21C7100599E45 /* GifPreviewViewController.swift in Sources */,
+				33D2E6A925DF7F8000779560 /* SavedGifsViewController.swift in Sources */,
 				EDFAA9201CDA9C3100D2CB08 /* Regift.swift in Sources */,
 				33728E0325D1A9E50056D543 /* UIViewController+Record.swift in Sources */,
 				339F889725D1D15400599E45 /* UIImage+Gif.swift in Sources */,
 				EDFAA9211CDA9C3100D2CB08 /* RegiftCaption.swift in Sources */,
+				330A11A725DF80F000CD56DB /* SavedGifCollectionViewCell.swift in Sources */,
 				339F889A25D1D77900599E45 /* GifEditorViewController.swift in Sources */,
 				339F889225D1CDC200599E45 /* WelcomeViewController.swift in Sources */,
 				EDFAA8ED1CDA99A500D2CB08 /* AppDelegate.swift in Sources */,
