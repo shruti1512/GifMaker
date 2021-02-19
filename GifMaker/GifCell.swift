@@ -8,8 +8,11 @@
 
 import UIKit
 
-class SavedGifCollectionViewCell: UICollectionViewCell {
-    
+class GifCell: UICollectionViewCell, SelfConfigurable {
+  static var reuseIdentifier = String(describing: GifCell.self)
+  
+  typealias T = Gif
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
   }
@@ -17,4 +20,9 @@ class SavedGifCollectionViewCell: UICollectionViewCell {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+  
+  func configure(with data: T) {
+    
+  }
+
 }
