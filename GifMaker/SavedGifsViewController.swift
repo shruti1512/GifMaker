@@ -20,14 +20,21 @@ class SavedGifsViewController: UIViewController {
   private lazy var collectionView: UICollectionView = {
     let collectionView = UICollectionView(frame: .zero,
                                           collectionViewLayout: configureCollectionViewLayout())
+    collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     collectionView.backgroundColor = .systemBackground
     collectionView.register(GifCell.self, forCellWithReuseIdentifier: GifCell.reuseIdentifier)
-    //    collectionView.dataSource = configureDataSource()
     return collectionView
   }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    addCollectionView()
+    configureDataSource()
+    reloadData()
+  }
+  
+  private func addCollectionView() {
+    view.addSubview(collectionView)
   }
   
   private func configureCollectionViewLayout() -> UICollectionViewCompositionalLayout {
@@ -43,7 +50,7 @@ class SavedGifsViewController: UIViewController {
     return UICollectionViewCompositionalLayout(section: section)
   }
   
-  private func configureDataSource()  {
+  private func configureDataSource() {
     dataSource = CollectionViewDataSource(collectionView: collectionView) {
       (collectionView, indexPath, gif) -> UICollectionViewCell? in
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GifCell.reuseIdentifier,
@@ -53,6 +60,13 @@ class SavedGifsViewController: UIViewController {
       cell.configure(with: gif)
       return cell
     }
+  }
+  
+  private func reloadData() {
+    var snapshot = NSDiffableDataSourceSnapshot<Section, Gif>()
+    snapshot.appendSections([.main])
+    snapshot.appendItems([])
+    dataSource.apply(snapshot)
   }
   
 }
