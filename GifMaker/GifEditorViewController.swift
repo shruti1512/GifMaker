@@ -39,10 +39,10 @@ class GifEditorViewController: UIViewController {
     guard let gifPreviewVC = storyboard?.instantiateViewController(withIdentifier: "GifPreviewViewController")
             as? GifPreviewViewController else { return }
     gifPreviewVC.delegate = navigationController?.viewControllers.first as? SavedGifsViewController
-    guard var gif = gif, gif.videoURL != nil else { return }
+    guard var gif = gif else { return }
     gif.caption = captionTextField.text
 
-    let regift = Regift(sourceFileURL: gif.videoURL!,
+    let regift = Regift(sourceFileURL: gif.videoURL,
                         destinationFileURL: nil,
                         frameCount: frameCount,
                         delayTime: delaytTime,
@@ -50,7 +50,7 @@ class GifEditorViewController: UIViewController {
     let captionFont = captionTextField.font;
     guard let gifURL = regift.createGif(captionTextField.text, font: captionFont) else { return  }
 
-    let newGif = Gif(gifURL: gifURL, videoURL: gif.videoURL!, caption: captionTextField.text!)
+    let newGif = Gif(gifURL: gifURL, videoURL: gif.videoURL, caption: captionTextField.text!)
     gifPreviewVC.gif = newGif
     navigationController?.pushViewController(gifPreviewVC, animated: true)
 
