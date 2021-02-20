@@ -10,7 +10,7 @@
 
 ## About
 
-<a name = "about" /> GIFIT for iOS is the fastest, simplest way to convert videos into gifs and share across all of your favorite social channels such as iMessage, Whatsapp, Facebook Messenger and more.
+<a name = "about" /> GIFIT for iOS is the fastest, simplest way to gif animations from videos and share across all of your favorite social channels such as iMessage, Whatsapp, Facebook Messenger and more.
 
 ## Features
 
