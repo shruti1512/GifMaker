@@ -20,11 +20,10 @@
 
 - Record videos or use existing videos in the media library and converts them to gif. 
 
+- Record videos or use existing videos in the media library and converts them to gif animations.
 - Shares gifs with family and friends. 
-
-- All the gifs are visible in a grid layout and are persisted on the device.  
-
-  
+- Show the gifs in a nice compact grid layout 
+- Persist gifs on the user device.  
 
 
 ## Screenshots

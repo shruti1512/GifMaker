@@ -3,7 +3,7 @@
 //  GifMaker_Swift_Template
 //
 //  Created by Shruti Sharma on 2/8/21.
-//  Copyright © 2021 Gabrielle Miller-Messner. All rights reserved.
+//  Copyright © 2021 Shruti Sharma. All rights reserved.
 //
 
 import UIKit

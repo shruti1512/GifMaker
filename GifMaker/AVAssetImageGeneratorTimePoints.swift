@@ -2,8 +2,8 @@
 //  AVAssetImageGeneratorTimePoints.swift
 //  GifMaker_ObjC
 //
-//  Created by Gabrielle Miller-Messner on 3/1/16.
-//  Copyright © 2016 Gabrielle Miller-Messner. All rights reserved.
+//  Created by Shruti Sharma on 02/08/21.
+//  Copyright © 2021 Shruti Sharma. All rights reserved.
 //
 
 import AVFoundation
