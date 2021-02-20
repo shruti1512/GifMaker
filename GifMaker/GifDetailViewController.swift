@@ -28,4 +28,4 @@ class GifDetailViewController: UIViewController {
 
 }
 
-extension GifDetailViewController: ShareGifProtocol { }
+extension GifDetailViewController: GifShareable { }
