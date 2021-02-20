@@ -65,7 +65,6 @@ class SavedGifsViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    navigationController?.navigationItem.title = "My Collection"
     showWelcome()
     fetchSavedGifsFromDisk()
     configureDataSource()
@@ -74,12 +73,14 @@ class SavedGifsViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    title = "My Collection"
     userDefaults.set(true, forKey: "WelcomeScreen")
     navigationController?.navigationBar.isHidden = (savedGifs.count == 0)
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
+    title = ""
     navigationController?.navigationBar.isHidden = false
   }
   

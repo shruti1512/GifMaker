@@ -11,11 +11,7 @@ import UIKit
 class GifEditorViewController: UIViewController {
   
   @IBOutlet private weak var gifImageView: UIImageView!
-  @IBOutlet private weak var captionTextField: UITextField! {
-    didSet {
-      captionTextField.delegate = self
-    }
-  }
+  @IBOutlet private weak var captionTextField: UITextField!
   
   var gif: Gif?
   
@@ -25,12 +21,14 @@ class GifEditorViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    title = "Add a caption"
     subscribeToKeyboardNotifications()
     gifImageView.image = gif?.gifImage
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
+    title = ""
     unsubscribeFromKeyboardNotifications()
   }
   

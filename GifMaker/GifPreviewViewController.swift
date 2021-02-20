@@ -33,6 +33,16 @@ class GifPreviewViewController: UIViewController {
     gifImageView.image = gif?.gifImage
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    title = "Preview"
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    title = ""
+  }
+  
   @IBAction func shareGif(_ sender: UIButton) {
     guard let gif = gif else { return }
     do {
