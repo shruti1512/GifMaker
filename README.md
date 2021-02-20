@@ -30,7 +30,7 @@
 ## Screenshots
 
 <a name = "screenshots" />
-<img src="Screenshots/welcome.PNG" width="200" height="400"> <img src="Screenshots/home.PNG" width="200" height="400"> <img src="Screenshots/home-options.PNG" width="200" height="400"> <img src="Screenshots/record-video.PNG" width="200" height="400"> <img src="Screenshots/add-caption.PNG" width="200" height="400"> <img src="Screenshots/preview.PNG" width="200" height="400"> <img src="Screenshots/Test.gif" width="200" height="400">
+<img src="Screenshots/welcome.PNG" width="200" height="400">  <img src="Screenshots/home.PNG" width="200" height="400">  <img src="Screenshots/home-options.PNG" width="200" height="400">  <img src="Screenshots/record-video.PNG" width="200" height="400">  <img src="Screenshots/add-caption.PNG" width="200" height="400">  <img src="Screenshots/preview.PNG" width="200" height="400">  <img src="Screenshots/Test.gif" width="200" height="400">
 
 ## Technologies 
 
