@@ -10,11 +10,17 @@ import UIKit
 
 class GifEditorViewController: UIViewController {
   
+  // MARK: - IBOutlets
+
   @IBOutlet private weak var gifImageView: UIImageView!
   @IBOutlet private weak var captionTextField: UITextField!
   
+  // MARK: - Instance Properties
+
   var gif: Gif?
   
+  // MARK: - View Life Cycle
+
   override func viewDidLoad() {
     super.viewDidLoad()
   }
@@ -32,6 +38,8 @@ class GifEditorViewController: UIViewController {
     unsubscribeFromKeyboardNotifications()
   }
   
+  // MARK: - IBActions
+
   @IBAction func presentPreview(_ sender: UIButton) {
 
     guard let gifPreviewVC = storyboard?.instantiateViewController(withIdentifier: "GifPreviewViewController")

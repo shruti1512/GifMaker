@@ -8,14 +8,21 @@
 
 import UIKit
 
+// MARK: - PreviewViewControllerDelegate Protocol
+
 protocol PreviewViewControllerDelegate: class {
   func previewViewController(_ previewVC: GifPreviewViewController, didSaveGif gif: Gif)
 }
 
 class GifPreviewViewController: UIViewController {
   
+  // MARK: - Instance Properties
+
   var gif: Gif?
   weak var delegate: PreviewViewControllerDelegate?
+  
+  // MARK: - IBOutlets
+
   @IBOutlet private weak var gifImageView: UIImageView!
   @IBOutlet private weak var createAndSaveButton: UIButton! {
     didSet { createAndSaveButton.roundWithCornerRadius(5) }
@@ -27,6 +34,8 @@ class GifPreviewViewController: UIViewController {
                                                 borderColor: borderColor)
     }
   }
+
+  // MARK: - View Lifecycle
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -43,6 +52,8 @@ class GifPreviewViewController: UIViewController {
     title = ""
   }
   
+  // MARK: - IBActions
+
   @IBAction func shareGif(_ sender: UIButton) {
     guard let gif = gif else { return }
     do {
@@ -61,5 +72,7 @@ class GifPreviewViewController: UIViewController {
   }
   
 }
+
+// MARK: - GifShareable
 
 extension GifPreviewViewController: GifShareable { }

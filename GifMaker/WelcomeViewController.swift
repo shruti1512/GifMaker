@@ -10,15 +10,18 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
   
+  // MARK: - IBOutlets
+  
   @IBOutlet private weak var gifImageView: UIImageView!
   
+  // MARK: - View Life cycle
+
   override func viewDidLoad() {
     super.viewDidLoad()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    // An animated UIImage
     let jeremyGif = UIImage.gif(name: "hotlineBling")
     gifImageView.image = jeremyGif
   }

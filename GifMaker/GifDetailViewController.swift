@@ -10,21 +10,26 @@ import UIKit
 
 class GifDetailViewController: UIViewController {
   
+  // MARK: - IBOutlets
+
   @IBOutlet private weak var gifImageView: UIImageView!
-  
   @IBOutlet private weak var shareButton: UIButton! {
-    didSet {
-      shareButton.roundWithCornerRadius(5)
-    }
+    didSet { shareButton.roundWithCornerRadius(5) }
   }
+
+  // MARK: - Instance Properties
 
   public var gif: Gif?
   
+  // MARK: - View Lifecycle
+
   override func viewDidLoad() {
     super.viewDidLoad()
     gifImageView.image = gif?.gifImage
   }
   
+  // MARK: - IBActions
+
   @IBAction private func closeView(_ sender: UIButton) {
     dismiss(animated: true)
   }
@@ -34,5 +39,7 @@ class GifDetailViewController: UIViewController {
   }
 
 }
+
+// MARK: - GifShareable
 
 extension GifDetailViewController: GifShareable { }

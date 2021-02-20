@@ -10,6 +10,8 @@ import UIKit
 
 class SavedGifsViewController: UIViewController {
   
+  // MARK: - IBOutlets
+  
   @IBOutlet private weak var collectionView: UICollectionView! {
     didSet {
       collectionView.collectionViewLayout = configureCollectionViewLayout()
@@ -18,17 +20,17 @@ class SavedGifsViewController: UIViewController {
       collectionView.delegate = self
     }
   }
-  let userDefaults = UserDefaults.standard
-  
   @IBOutlet private weak var emptyView: UIStackView!
+
+  // MARK: - Instance Properties
+  
+  let userDefaults = UserDefaults.standard
   let savedGifsURL = FileManager.documentsDirectory
                     .appendingPathComponent("savedGifs")
                     .appendingPathExtension("json")
-  
   private enum Section {
     case main
   }
-  
   private typealias CollectionViewDataSource = UICollectionViewDiffableDataSource<Section, Gif>
   private var dataSource: CollectionViewDataSource!
   private var savedGifs: [Gif] = [] {
@@ -37,31 +39,8 @@ class SavedGifsViewController: UIViewController {
       navigationController?.navigationBar.isHidden = (savedGifs.count == 0)
     }
   }
-  
-  private func showWelcome()  {
-    if !userDefaults.bool(forKey: "WelcomeScreen") {
-      guard let welcomeVC = storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as? WelcomeViewController else { return }
-      present(welcomeVC, animated: true)
-    }
-  }
-  
-  private func fetchSavedGifsFromDisk() {
-    do {
-      let savedGifsData = try Data(contentsOf: savedGifsURL)
-      savedGifs = try JSONDecoder().decode([Gif].self, from: savedGifsData)
-    } catch (let error) {
-      print("Unable to get data from url: \(savedGifsURL), error: \(error.localizedDescription)")
-    }
-  }
-  
-  private func persistGifsToDisk() {
-    do {
-      let jsonData = try JSONEncoder().encode(savedGifs)
-      try jsonData.write(to: savedGifsURL)
-    } catch(let error) {
-      print("Unable to save gifs at url: \(savedGifsURL) error: \(error)")
-    }
-  }
+
+  // MARK: - View Life cycle
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -83,7 +62,38 @@ class SavedGifsViewController: UIViewController {
     title = ""
     navigationController?.navigationBar.isHidden = false
   }
+
+  // MARK: - Show Welcome Screen
+
+  private func showWelcome()  {
+    if !userDefaults.bool(forKey: "WelcomeScreen") {
+      guard let welcomeVC = storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as? WelcomeViewController else { return }
+      present(welcomeVC, animated: true)
+    }
+  }
   
+  // MARK: - Persist and load gifs in and from disk
+
+  private func persistGifsToDisk() {
+    do {
+      let jsonData = try JSONEncoder().encode(savedGifs)
+      try jsonData.write(to: savedGifsURL)
+    } catch(let error) {
+      print("Unable to save gifs at url: \(savedGifsURL) error: \(error)")
+    }
+  }
+
+  private func fetchSavedGifsFromDisk() {
+    do {
+      let savedGifsData = try Data(contentsOf: savedGifsURL)
+      savedGifs = try JSONDecoder().decode([Gif].self, from: savedGifsData)
+    } catch (let error) {
+      print("Unable to get data from url: \(savedGifsURL), error: \(error.localizedDescription)")
+    }
+  }
+    
+  // MARK: - Configure CollectionView Compositional Layout
+
   private func configureCollectionViewLayout() -> UICollectionViewCompositionalLayout {
     let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
                                           heightDimension: .fractionalHeight(1.0))
@@ -98,6 +108,8 @@ class SavedGifsViewController: UIViewController {
     return UICollectionViewCompositionalLayout(section: section)
   }
   
+  // MARK: - Configure CollectionView Diffable DataSource
+
   private func configureDataSource() {
     dataSource = CollectionViewDataSource(collectionView: collectionView) {
       (collectionView, indexPath, gif) -> UICollectionViewCell? in
@@ -110,6 +122,8 @@ class SavedGifsViewController: UIViewController {
     }
   }
   
+  // MARK: - Apply DataSnapshot To Diffable DataSource
+
   private func reloadData() {
     var snapshot = NSDiffableDataSourceSnapshot<Section, Gif>()
     snapshot.appendSections([.main])
@@ -118,6 +132,8 @@ class SavedGifsViewController: UIViewController {
   }
   
 }
+
+// MARK: - PreviewViewControllerDelegate
 
 extension SavedGifsViewController: PreviewViewControllerDelegate {
   
@@ -130,7 +146,10 @@ extension SavedGifsViewController: PreviewViewControllerDelegate {
   }
 }
 
+// MARK: - UICollectionViewDelegate
+
 extension SavedGifsViewController: UICollectionViewDelegate {
+  
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "GifDetailViewController") as? GifDetailViewController else { return }
     detailVC.gif = dataSource.itemIdentifier(for: indexPath)
