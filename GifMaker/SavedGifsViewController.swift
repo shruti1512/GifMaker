@@ -36,7 +36,7 @@ class SavedGifsViewController: UIViewController {
   private var savedGifs: [Gif] = [] {
     didSet {
       emptyView.isHidden = (savedGifs.count != 0)
-      navigationController?.navigationBar.isHidden = (savedGifs.count == 0)
+      //navigationController?.navigationBar.isHidden = (savedGifs.count == 0)
     }
   }
 
@@ -54,7 +54,7 @@ class SavedGifsViewController: UIViewController {
     super.viewWillAppear(animated)
     title = "My Collection"
     userDefaults.set(true, forKey: "WelcomeScreen")
-    navigationController?.navigationBar.isHidden = (savedGifs.count == 0)
+    //navigationController?.navigationBar.isHidden = (savedGifs.count == 0)
   }
   
   override func viewWillDisappear(_ animated: Bool) {
