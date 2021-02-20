@@ -15,11 +15,13 @@ class SavedGifsViewController: UIViewController {
       collectionView.collectionViewLayout = configureCollectionViewLayout()
       collectionView.backgroundColor = .systemBackground
       collectionView.register(GifCell.self, forCellWithReuseIdentifier: GifCell.reuseIdentifier)
+      collectionView.delegate = self
     }
   }
   
   @IBOutlet private weak var emptyView: UIStackView!
-
+  let savedGifsURL = FileManager.documentsDirectory.appendingPathComponent("savedGifs").appendingPathExtension("json")
+  
   private enum Section {
     case main
   }
@@ -32,8 +34,33 @@ class SavedGifsViewController: UIViewController {
     }
   }
   
+  private func fetchSavedGifsFromDisk() {
+    do {
+      let savedGifsData = try Data(contentsOf: savedGifsURL)
+      savedGifs = try JSONDecoder().decode([Gif].self, from: savedGifsData)
+    } catch (let error) {
+      print("Unable to get data from url: \(savedGifsURL), error: \(error.localizedDescription)")
+    }
+  }
+  
+  private func persistGifsToDisk() {
+    do {
+      let jsonData = try JSONEncoder().encode(savedGifs)
+      try jsonData.write(to: savedGifsURL)
+    } catch(let error) {
+      print("Unable to save gifs at url: \(savedGifsURL) error: \(error)")
+    }
+//    do {
+//      let data = try NSKeyedArchiver.archivedData(withRootObject: gif, requiringSecureCoding: false)
+//      try data.write(to: savedGifsURL)
+//    } catch(let error) {
+//      print("Unable to archive gif: \(error.localizedDescription)")
+//    }
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
+    fetchSavedGifsFromDisk()
     configureDataSource()
     reloadData()
   }
@@ -70,15 +97,16 @@ class SavedGifsViewController: UIViewController {
     snapshot.appendItems(savedGifs)
     dataSource.apply(snapshot)
   }
+  
 }
 
 extension SavedGifsViewController: PreviewViewControllerDelegate {
   
   public func previewViewController(_ previewVC: GifPreviewViewController, didSaveGif gif: Gif) {
-    guard let url = gif.gifURL else { return }
     var newGif = gif
-    newGif.gifData = try? Data(contentsOf: url)
-    savedGifs.append(gif)
+    newGif.gifData = try? Data(contentsOf: gif.gifURL)
+    savedGifs.append(newGif)
+    persistGifsToDisk()
     reloadData()
   }
 }
