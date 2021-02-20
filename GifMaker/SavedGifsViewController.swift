@@ -18,9 +18,12 @@ class SavedGifsViewController: UIViewController {
       collectionView.delegate = self
     }
   }
+  let userDefaults = UserDefaults.standard
   
   @IBOutlet private weak var emptyView: UIStackView!
-  let savedGifsURL = FileManager.documentsDirectory.appendingPathComponent("savedGifs").appendingPathExtension("json")
+  let savedGifsURL = FileManager.documentsDirectory
+                    .appendingPathComponent("savedGifs")
+                    .appendingPathExtension("json")
   
   private enum Section {
     case main
@@ -31,6 +34,14 @@ class SavedGifsViewController: UIViewController {
   private var savedGifs: [Gif] = [] {
     didSet {
       emptyView.isHidden = (savedGifs.count != 0)
+      navigationController?.navigationBar.isHidden = (savedGifs.count == 0)
+    }
+  }
+  
+  private func showWelcome()  {
+    if !userDefaults.bool(forKey: "WelcomeScreen") {
+      guard let welcomeVC = storyboard?.instantiateViewController(withIdentifier: "WelcomeViewController") as? WelcomeViewController else { return }
+      present(welcomeVC, animated: true)
     }
   }
   
@@ -50,19 +61,26 @@ class SavedGifsViewController: UIViewController {
     } catch(let error) {
       print("Unable to save gifs at url: \(savedGifsURL) error: \(error)")
     }
-//    do {
-//      let data = try NSKeyedArchiver.archivedData(withRootObject: gif, requiringSecureCoding: false)
-//      try data.write(to: savedGifsURL)
-//    } catch(let error) {
-//      print("Unable to archive gif: \(error.localizedDescription)")
-//    }
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationController?.navigationItem.title = "My Collection"
+    showWelcome()
     fetchSavedGifsFromDisk()
     configureDataSource()
     reloadData()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    userDefaults.set(true, forKey: "WelcomeScreen")
+    navigationController?.navigationBar.isHidden = (savedGifs.count == 0)
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    navigationController?.navigationBar.isHidden = false
   }
   
   private func configureCollectionViewLayout() -> UICollectionViewCompositionalLayout {
