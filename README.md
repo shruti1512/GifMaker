@@ -1,12 +1,13 @@
 
 <h1 style="text-align:center;">GIFIT</h1>
 
-[![License badge](https://img.shields.io/badge/License-MIT-yellow.svg)](https://shields.io/) [![Language badge](https://img.shields.io/badge/Swift-5.2-orange.svg)](https://shields.io/) [![platform badge](https://img.shields.io/badge/platform-iOS-gray.svg)](https://shields.io/) [![Twitter badge](https://img.shields.io/badge/twitter-@shruti1512-blue.svg)](https://shields.io/)
+[![License badge](https://img.shields.io/badge/License-MIT-yellow.svg)](https://shields.io/) [![Language badge](https://img.shields.io/badge/Swift-5.2-orange.svg)](https://shields.io/) [![platform badge](https://img.shields.io/badge/platform-iOS-lightgrey.svg)](https://shields.io/) [![Twitter badge](https://img.shields.io/badge/twitter-@shruti1512-blue.svg)](https://shields.io/)
 
 [About](#about)<br/>
 [Features](#features)<br/>
 [Screenshots](#screenshots)<br/>
 [Technologies](#tech)<br/>
+[License](#license)<br/>
 
 ## About
 
@@ -29,7 +30,7 @@
 ## Screenshots
 
 <a name = "screenshots" />
-<img src="Screenshots/1.Home.png" width="200" height="400">       
+<img src="Screenshots/welcome.PNG" width="200" height="400"> <img src="Screenshots/home.PNG" width="200" height="400"> <img src="Screenshots/home-options.PNG" width="200" height="400"> <img src="Screenshots/record-video.PNG" width="200" height="400"> <img src="Screenshots/add-caption.PNG" width="200" height="400"> <img src="Screenshots/preview.PNG" width="200" height="400"> <img src="Screenshots/Test.gif" width="200" height="400">
 
 ## Technologies 
 
@@ -67,4 +68,8 @@
   - ImageIO
   - Regift
 
+## License 
+
+<a name = "about" /> 
+GIFIT is released under the MIT license. See [LICENSE](https://github.com/shruti1512/GifMaker/blob/main/LICENSE) for details.
 
