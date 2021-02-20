@@ -67,4 +67,6 @@
   - ImageIO
   - Regift
 
+## License 
+GIFIT is released under the MIT license. See [LICENSE](https://github.com/shruti1512/GifMaker/blob/main/LICENSE) for details.
 
