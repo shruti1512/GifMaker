@@ -110,3 +110,13 @@ extension SavedGifsViewController: PreviewViewControllerDelegate {
     reloadData()
   }
 }
+
+extension SavedGifsViewController: UICollectionViewDelegate {
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "GifDetailViewController") as? GifDetailViewController else { return }
+    detailVC.gif = dataSource.itemIdentifier(for: indexPath)
+    detailVC.modalPresentationStyle = .currentContext
+    present(detailVC, animated: true)
+  }
+}
+
