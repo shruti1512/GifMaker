@@ -11,6 +11,13 @@ import UIKit
 class GifDetailViewController: UIViewController {
   
   @IBOutlet private weak var gifImageView: UIImageView!
+  
+  @IBOutlet private weak var shareButton: UIButton! {
+    didSet {
+      shareButton.roundWithCornerRadius(5)
+    }
+  }
+
   public var gif: Gif?
   
   override func viewDidLoad() {
