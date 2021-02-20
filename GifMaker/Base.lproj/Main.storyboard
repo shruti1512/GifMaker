@@ -244,7 +244,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Preview" id="SWX-N6-oaS"/>
                     <connections>
+                        <outlet property="createAndSaveButton" destination="xoi-MZ-GNH" id="YmP-Zm-SYS"/>
                         <outlet property="gifImageView" destination="HQu-c2-zTO" id="xOL-hA-Vn7"/>
+                        <outlet property="shareButton" destination="lnU-9g-0xe" id="PFq-1I-TKO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KCC-tI-bRp" userLabel="First Responder" sceneMemberID="firstResponder"/>

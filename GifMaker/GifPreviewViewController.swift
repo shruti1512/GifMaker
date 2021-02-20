@@ -17,7 +17,17 @@ class GifPreviewViewController: UIViewController {
   var gif: Gif?
   weak var delegate: PreviewViewControllerDelegate?
   @IBOutlet private weak var gifImageView: UIImageView!
-  
+  @IBOutlet private weak var createAndSaveButton: UIButton! {
+    didSet { createAndSaveButton.roundWithCornerRadius(5) }
+  }
+  @IBOutlet private weak var shareButton: UIButton! {
+    didSet {
+      let borderColor = UIColor(red: 255/255, green: 65/255, blue: 112/255, alpha: 1)
+      shareButton.roundWithCornerRadius(5, borderWidth: 1.0,
+                                                borderColor: borderColor)
+    }
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
     gifImageView.image = gif?.gifImage
