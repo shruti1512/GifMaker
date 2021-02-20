@@ -1,7 +1,7 @@
 
 <h1 style="text-align:center;">GIFIT</h1>
 
-[![License badge](https://img.shields.io/badge/License-MIT-yellow.svg)](https://shields.io/) [![Language badge](https://img.shields.io/badge/Swift-5.2-orange.svg)](https://shields.io/) [![platform badge](https://img.shields.io/badge/platform-iOS-gray.svg)](https://shields.io/) [![Twitter badge](https://img.shields.io/badge/twitter-@shruti1512-blue.svg)](https://shields.io/)
+[![License badge](https://img.shields.io/badge/License-MIT-yellow.svg)](https://shields.io/) [![Language badge](https://img.shields.io/badge/Swift-5.2-orange.svg)](https://shields.io/) [![platform badge](https://img.shields.io/badge/platform-iOS-lightgrey.svg)](https://shields.io/) [![Twitter badge](https://img.shields.io/badge/twitter-@shruti1512-blue.svg)](https://shields.io/)
 
 [About](#about)<br/>
 [Features](#features)<br/>
