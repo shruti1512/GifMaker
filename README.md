@@ -7,6 +7,7 @@
 [Features](#features)<br/>
 [Screenshots](#screenshots)<br/>
 [Technologies](#tech)<br/>
+[License](#license)<br/>
 
 ## About
 
@@ -68,5 +69,7 @@
   - Regift
 
 ## License 
+
+<a name = "about" /> 
 GIFIT is released under the MIT license. See [LICENSE](https://github.com/shruti1512/GifMaker/blob/main/LICENSE) for details.
 
