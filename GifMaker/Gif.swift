@@ -14,6 +14,7 @@ struct Gif {
   var caption: String?
   let gifImage: UIImage?
   var gifData: Data?
+  let identifier = UUID().uuidString
 
   init(gifURL: URL, videoURL: URL, caption: String) {
     self.gifURL = gifURL
@@ -26,10 +27,10 @@ struct Gif {
 
 extension Gif: Hashable {
   func hash(into hasher: inout Hasher) {
-    hasher.combine(gifURL)
+    hasher.combine(identifier)
   }
   static func ==(lhs: Gif, rhs: Gif) -> Bool {
-    return lhs.gifURL == rhs.gifURL
+    return lhs.identifier == rhs.identifier
   }
 }
 
