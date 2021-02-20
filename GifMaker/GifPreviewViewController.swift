@@ -24,19 +24,13 @@ class GifPreviewViewController: UIViewController {
   }
   
   @IBAction func shareGif(_ sender: UIButton) {
-    guard let gif = gif, let gifURL = gif.gifURL else { return }
-    guard let animatedGif = try? Data(contentsOf: gifURL) else { return }
-    
-    let shareController = UIActivityViewController(activityItems: [animatedGif],
-                                                   applicationActivities: nil)
-    shareController.completionWithItemsHandler = { [weak self] activity, completed, items, error in
-      guard let self = self else { return }
-      if completed {
-        self.navigationController?.popToRootViewController(animated: true)
-        return
-      }
+    guard let gif = gif else { return }
+    do {
+      let gifData = try Data(contentsOf: gif.gifURL)
+      self.viewController(self, shareGif: gifData)
+    }catch (let error) {
+      print("Failed to read gif from url: \(gif.gifURL). Error: \(error.localizedDescription)")
     }
-    present(shareController, animated: true)
   }
   
   @IBAction private func createAndSave(_ sender: UIButton) {
@@ -47,3 +41,5 @@ class GifPreviewViewController: UIViewController {
   }
   
 }
+
+extension GifPreviewViewController: GifShareable { }
